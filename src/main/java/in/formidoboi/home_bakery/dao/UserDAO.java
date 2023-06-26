@@ -8,19 +8,10 @@ public class UserDAO {
 		User[] userList = UserList.listOfUsers;
 		return userList;
 	}
-	
-	public void create() {
-		User newUser = new User();
-		
-		newUser.setId(1234);
-		newUser.setfName("Formido");
-		newUser.setsName("Boi");
-		newUser.setEmail("formidoboi67@gmail.com");
-		newUser.setPassword("Aspirin2004");
-		newUser.setActive(true);
-		
+
+	public void create(User newUser) {
+		// TODO Auto-generated method stub
 		UserList.listOfUsers[0] = newUser;
-		
 	}
 	
 }

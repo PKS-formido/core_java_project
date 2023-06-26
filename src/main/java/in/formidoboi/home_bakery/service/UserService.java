@@ -19,4 +19,20 @@ public class UserService {
 		
 	}
 	
+	public void create() {
+		User newUser = new User();
+		
+		newUser.setId(1234);
+		newUser.setfName("Formido");
+		newUser.setsName("Boi");
+		newUser.setEmail("formidoboi67@gmail.com");
+		newUser.setPassword("Aspirin2004");
+		newUser.setActive(true);
+		
+		UserDAO userDao = new UserDAO();
+		userDao.create(newUser);
+		
+		
+	}
+	
 }
