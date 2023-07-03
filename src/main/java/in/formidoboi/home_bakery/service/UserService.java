@@ -1,8 +1,9 @@
 package in.formidoboi.home_bakery.service;
 
 import in.formidoboi.home_bakery.dao.UserDAO;
+
 import in.formidoboi.home_bakery.model.User;
-import validation.UserValidator;
+import in.formidoboi.home_bakery.validation.UserValidator;
 
 public class UserService {
 
