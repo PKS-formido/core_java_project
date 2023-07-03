@@ -7,7 +7,7 @@ public class User {
 	String sName;
 	String email;
 	String password;
-	boolean isActive;
+	boolean isActive = true;
 	
 	public int getId() {
 		return id;
