@@ -1,7 +1,7 @@
 package in.formidoboi.home_bakery.service;
 
 import in.formidoboi.home_bakery.dao.UserDAO;
-
+import in.formidoboi.home_bakery.model.Task;
 import in.formidoboi.home_bakery.model.User;
 import in.formidoboi.home_bakery.validation.UserValidator;
 
@@ -33,7 +33,7 @@ public class UserService {
 	public void update() {
 		User updatedUser = new User();
 		
-		updatedUser.setId(1234);
+		updatedUser.setId(12);
 		updatedUser.setfName("Formido");
 		updatedUser.setsName("Boi");
 		updatedUser.setEmail("formidoboi67@gmail.com");
@@ -50,6 +50,15 @@ public class UserService {
 		userDao.delete(userId);
 	}
 	
-	
+//	public User findById(int userId) {
+//		UserDAO userDao = new UserDAO();
+//		userDao.findById(userId);
+//		
+//	}
+//	
+//	public User findByEmail(String userEmail) {
+//		UserDAO userDao = new UserDAO();
+//		userDao.findByEmail(userEmail);
+//	}
 
 }
