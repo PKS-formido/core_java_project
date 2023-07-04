@@ -29,11 +29,15 @@ public class App {
 			
 			newTask.setActive(true);
 			newTask.setId(3);
-			newTask.setName("Wash");
-			newTask.setDueDate(LocalDate.of(2022, 9, 6));
+			newTask.setName("Wash cloths Maruthan");
+			String userInput = "23/07/2023";
+		    LocalDate convertedDate = TaskService.convertToDate(userInput);
+		    newTask.setDueDate(convertedDate);
 			
 			taskService.create(newTask);
-//			taskService.update();
+			
+			taskService.getAll();
+			taskService.update(newTask);
 			taskService.getAll();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

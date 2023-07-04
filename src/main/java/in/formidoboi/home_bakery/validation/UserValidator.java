@@ -5,7 +5,7 @@ import in.formidoboi.home_bakery.util.StringUtil;
 
 	public class UserValidator {
 		
-		public static void validate(User user) throws ValidationException {
+		public static void validate(User user) throws Exception {
 			if(user == null) {
 				throw new ValidationException("Invalid user input");
 			}

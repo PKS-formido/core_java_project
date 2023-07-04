@@ -10,7 +10,7 @@ public class TaskValidator {
 	
 	public static void validate(Task task) throws ValidationException{
 		if(task == null) {
-			throw new ValidationException("Invalid task input");
+			throw new ValidationException ("Invalid task input");
 		}
 		
 		if(task.getDueDate() == null) {
