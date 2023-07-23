@@ -30,9 +30,6 @@ public class UserDAO implements UserInterface {
 	public void update(User updatedUser) {
 		Set<User> userList = UserList.listOfUsers;
 		for (User user : userList) {
-			if (user == null) {
-				continue;
-			}
 			if (user.getId() == updatedUser.getId()) {
 				user.setfName(updatedUser.getfName());
 				user.setsName(updatedUser.getsName());
@@ -63,24 +60,6 @@ public class UserDAO implements UserInterface {
 		// TODO Auto-generated method stub
 		Set<User> arr = UserList.listOfUsers;
 		arr.add(newUser);
-	}
-
-	@Override
-	public void create() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

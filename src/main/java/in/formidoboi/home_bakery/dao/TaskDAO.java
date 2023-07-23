@@ -5,7 +5,6 @@ import java.util.Set;
 import in.formidoboi.home_bakery.Interfaces.TaskInterface;
 import in.formidoboi.home_bakery.model.Task;
 import in.formidoboi.home_bakery.model.TaskEntity;
-import in.formidoboi.home_bakery.model.User;
 
 public class TaskDAO implements TaskInterface{
 
@@ -34,9 +33,6 @@ public class TaskDAO implements TaskInterface{
 	public void update(Task updatedTask) {
 		Set<Task> taskList = TaskList.listOfTasks;
 		for (Task task : taskList) {
-			if (task == null) {
-				continue;
-			}
 			if (task.getId() == updatedTask.getId()) {
 				task.setName(updatedTask.getName());
 				task.setDueDate(updatedTask.getDueDate());
@@ -63,25 +59,5 @@ public class TaskDAO implements TaskInterface{
 				break;
 			}
 		}
-	}
-	
-//	---------------------------------------------------
-
-	@Override
-	public void create() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-		
 	}
 }
