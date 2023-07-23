@@ -1,39 +1,35 @@
 package in.formidoboi.home_bakery.dao;
 
+import java.util.Set;
+
+import in.formidoboi.home_bakery.Interfaces.UserInterface;
 import in.formidoboi.home_bakery.model.User;
 
-public class UserDAO {
-
-	public User[] findAll() {
-		User[] userList = UserList.listOfUsers;
+public class UserDAO implements UserInterface {
+	@Override
+	public Set<User> findAll() {
+		Set<User> userList = UserList.listOfUsers;
 		return userList;
 	}
 
-	/**
-	 * 
-	 * @param newUser
-	 */
-	public void create(User newUser) {
-		// TODO Auto-generated method stub
-		User[] arr = UserList.listOfUsers;
-		for (int i = 0; i < arr.length; i++) {
-			User user = arr[i];
-			if (user == null) {
-				arr[i] = newUser;
+	@Override
+	public User findById(int userId) {
+		Set<User> userList = UserList.listOfUsers;
+		User userMatch = null;
+
+		for (User user : userList) {
+			if (user.getId() == userId) {
+				userMatch = user;
 				break;
 			}
 		}
+		return userMatch;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param updatedUser
-	 */
+	@Override
 	public void update(User updatedUser) {
-		User[] arr = UserList.listOfUsers;
-		for (int i = 0; i < arr.length; i++) {
-			User user = arr[i];
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
 			if (user == null) {
 				continue;
 			}
@@ -45,16 +41,13 @@ public class UserDAO {
 				break;
 			}
 		}
+
 	}
 
-	/**
-	 * 
-	 * @param userId
-	 */
+	@Override
 	public void delete(int userId) {
-		User[] arr = UserList.listOfUsers;
-		for (int i = 0; i < arr.length; i++) {
-			User user = arr[i];
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
 			if (user == null) {
 				continue;
 			}
@@ -65,32 +58,29 @@ public class UserDAO {
 		}
 	}
 
-	public User findById(int userId) {
-		User[] userList = UserList.listOfUsers;
-		User userMatch = null;
-
-		for (int i = 0; i < userList.length; i++) {
-			User user = userList[i];
-			if (user.getId() == userId) {
-				userMatch = user;
-				break;
-			}
-		}
-		return userMatch;
+	@Override
+	public void create(User newUser) {
+		// TODO Auto-generated method stub
+		Set<User> arr = UserList.listOfUsers;
+		arr.add(newUser);
 	}
-	
-	public User findByEmail(String userEmail) {
-		User[] userList = UserList.listOfUsers;
-		User userMatch = null;
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
 		
-		for (int i = 0; i < userList.length; i++) {
-			User user = userList[i];
-			if(user.getEmail() == userEmail) {
-				userMatch = user;
-				break;
-			}
-		}
-		return userMatch;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -40,10 +40,6 @@ public class TaskService {
 	}
 	
 	public void update(Task updatedTask1) {
-//		Task updatedTask = new Task();
-//		
-//		updatedTask.setDueDate(LocalDate.of(2023, 10, 31));
-//		updatedTask.setName("Wash Clothes");
 		
 		TaskDAO taskDao = new TaskDAO();
 		taskDao.update(updatedTask1);

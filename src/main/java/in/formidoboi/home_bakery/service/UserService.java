@@ -1,5 +1,7 @@
 package in.formidoboi.home_bakery.service;
 
+import java.util.Set;
+
 import in.formidoboi.home_bakery.dao.UserDAO;
 import in.formidoboi.home_bakery.model.Task;
 import in.formidoboi.home_bakery.model.User;
@@ -7,14 +9,14 @@ import in.formidoboi.home_bakery.validation.UserValidator;
 
 public class UserService {
 
-	public User[] getAll() {
+	public Set<User> getAll() {
 
 		UserDAO userDao = new UserDAO();
 
-		User[] userList = userDao.findAll();
+		Set<User> userList = userDao.findAll();
 
-		for (int i = 0; i < userList.length; i++) {
-			System.out.println(userList[i]);
+		for (User user : userList) {
+			System.out.println(user);
 		}
 
 		return userList;

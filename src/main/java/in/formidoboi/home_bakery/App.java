@@ -20,25 +20,38 @@ public class App {
 			newUser.setEmail("formidoboi67@gmail.com");
 			newUser.setPassword("Aspirin2004");
 			newUser.setActive(true);
+			
+			
+			User newUser2 = new User();
+
+			newUser2.setId(2351);
+			newUser2.setfName("Formi");
+			newUser2.setsName("Boi");
+			newUser2.setEmail("formidoboi67@gmail.com");
+			newUser2.setPassword("Aspirin2004");
+			newUser2.setActive(true);
+			
 
 			userService.create(newUser);
+			userService.create(newUser2);
+			userService.getAll();
 //			userService.getAll(); 
 			
-			TaskService taskService = new TaskService();
-			Task newTask = new Task();
-			
-			newTask.setActive(true);
-			newTask.setId(3);
-			newTask.setName("Wash cloths Maruthan");
-			String userInput = "23/07/2023";
-		    LocalDate convertedDate = TaskService.convertToDate(userInput);
-		    newTask.setDueDate(convertedDate);
-			
-			taskService.create(newTask);
-			
-			taskService.getAll();
-			taskService.update(newTask);
-			taskService.getAll();
+//			TaskService taskService = new TaskService();
+//			Task newTask = new Task();
+//			
+//			newTask.setActive(true);
+//			newTask.setId(3);
+//			newTask.setName("Wash cloths Maruthan");
+//			String userInput = "23/07/2023";
+//		    LocalDate convertedDate = TaskService.convertToDate(userInput);
+//		    newTask.setDueDate(convertedDate);
+//			
+//			taskService.create(newTask);
+//			
+//			taskService.getAll();
+//			taskService.update(newTask);
+//			taskService.getAll();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
