@@ -3,7 +3,7 @@ package in.formidoboi.home_bakery.service;
 import java.util.Set;
 
 import in.formidoboi.home_bakery.dao.UserDAO;
-import in.formidoboi.home_bakery.model.Task;
+import in.formidoboi.home_bakery.model.TaskEntity;
 import in.formidoboi.home_bakery.model.User;
 import in.formidoboi.home_bakery.validation.UserValidator;
 

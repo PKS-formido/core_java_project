@@ -2,20 +2,24 @@ package in.formidoboi.home_bakery.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 import in.formidoboi.home_bakery.dao.TaskDAO;
 import in.formidoboi.home_bakery.exception.ValidationException;
 import in.formidoboi.home_bakery.model.Task;
+import in.formidoboi.home_bakery.model.TaskEntity;
+import in.formidoboi.home_bakery.model.User;
 import in.formidoboi.home_bakery.validation.TaskValidator;
 
 public class TaskService {
 	
-	public Task[] getAll() {
+	public Set<Task> getAll() {
 		TaskDAO taskDAO = new TaskDAO();
-		Task[] taskList = taskDAO.findAll();
 		
-		for (int i = 0; i < taskList.length; i++) {
-			System.out.println(taskList[i]);
+		Set<Task> taskList = taskDAO.findAll();
+		
+		for (Task task : taskList) {
+			System.out.println(task);
 		}
 		
 		return taskList;

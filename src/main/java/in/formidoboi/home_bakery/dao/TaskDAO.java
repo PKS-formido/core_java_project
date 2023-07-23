@@ -1,53 +1,87 @@
 package in.formidoboi.home_bakery.dao;
 
+import java.util.Set;
+
+import in.formidoboi.home_bakery.Interfaces.TaskInterface;
 import in.formidoboi.home_bakery.model.Task;
+import in.formidoboi.home_bakery.model.TaskEntity;
+import in.formidoboi.home_bakery.model.User;
 
-public class TaskDAO {
+public class TaskDAO implements TaskInterface{
 
-	public Task[] findAll() {
-		Task[] taskList = TaskList.listOfTasks;
-		return taskList;
+	@Override
+	public void create(Task newTask) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		taskList.add(newTask);
+		
 	}
 
-	public void create(Task newTask) {
-		Task[] arr = TaskList.listOfTasks;
-		for (int i = 0; i < arr.length; i++) {
-			Task task = arr[i];
-			if (task == null) {
-				arr[i] = newTask;
+	@Override
+	public Task findById(int id) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		Task taskMatch = null;
+
+		for (Task task : taskList) {
+			if (task.getId() == id) {
+				taskMatch = task;
 				break;
 			}
-
 		}
+		return taskMatch;
 	}
-	
+
+	@Override
 	public void update(Task updatedTask) {
-		Task[] arr = TaskList.listOfTasks;
-		for (int i = 0; i < arr.length; i++) {
-			Task task = arr[i];
+		Set<Task> taskList = TaskList.listOfTasks;
+		for (Task task : taskList) {
 			if (task == null) {
 				continue;
 			}
 			if (task.getId() == updatedTask.getId()) {
 				task.setName(updatedTask.getName());
 				task.setDueDate(updatedTask.getDueDate());
+				break;
+			}
+		}
+	}
 
+	@Override
+	public Set<Task> findAll() {
+		Set<Task> userTask = TaskList.listOfTasks;
+		return userTask;
+	}
+
+	@Override
+	public void delete(int TaskId) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		for (Task task : taskList) {
+			if (task == null) {
+				continue;
+			}
+			if (task.getId() == TaskId) {
+				task.setActive(false);
 				break;
 			}
 		}
 	}
 	
-	public void delete(int taskId) {
-		Task[] arr = TaskList.listOfTasks;
-		for (int i = 0; i < arr.length; i++) {
-			Task task = arr[i];
-			if (task == null) {
-				continue;
-			}
-			if (task.getId() == taskId) {
-				task.setActive(false);
-				break;
-			}
-		}
+//	---------------------------------------------------
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
 	}
 }

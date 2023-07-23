@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 import in.formidoboi.home_bakery.exception.ValidationException;
+import in.formidoboi.home_bakery.model.TaskEntity;
 import in.formidoboi.home_bakery.model.Task;
 import in.formidoboi.home_bakery.service.TaskService;
 
