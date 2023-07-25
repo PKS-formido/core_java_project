@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import in.formidoboi.home_bakery.dao.TaskDAO;
+import in.formidoboi.home_bakery.dao.UserDAO;
 import in.formidoboi.home_bakery.exception.ValidationException;
 import in.formidoboi.home_bakery.model.Task;
 import in.formidoboi.home_bakery.model.TaskEntity;
@@ -17,10 +18,6 @@ public class TaskService {
 		TaskDAO taskDAO = new TaskDAO();
 		
 		Set<Task> taskList = taskDAO.findAll();
-		
-		for (Task task : taskList) {
-			System.out.println(task);
-		}
 		
 		return taskList;
 	}
@@ -43,10 +40,10 @@ public class TaskService {
 		}
 	}
 	
-	public void update(Task updatedTask1) {
+	public void update(int id,Task updatedTask1) {
 		
 		TaskDAO taskDao = new TaskDAO();
-		taskDao.update(1, updatedTask1);
+		taskDao.update(id, updatedTask1);
 		
 	}
 	
@@ -55,6 +52,11 @@ public class TaskService {
 		TaskDAO taskDao = new TaskDAO();
 		taskDao.delete(taskId);
 		
+	}
+	
+	public Task findById(int Id) {
+		TaskDAO taskDao = new TaskDAO();
+		return taskDao.findById(Id);
 	}
 	
 }

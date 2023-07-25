@@ -22,4 +22,14 @@ public class TestUpdateUser {
 		});
 	}
 	
+	@Test
+	public void testDeactivatedUser() {
+		UserService userService = new UserService();
+		User updatedUser = new User();
+		
+		assertDoesNotThrow(() -> {
+			userService.delete(2);
+		});
+	}
+	
 }

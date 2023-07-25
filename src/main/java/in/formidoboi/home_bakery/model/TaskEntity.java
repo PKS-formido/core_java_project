@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 
 public abstract class TaskEntity {
 	private int id;
-	private String name;
-	private LocalDate dueDate;
-	private boolean isActive;
+	private String task_name;
+	private String due_date;
+	private boolean is_active;
 	
 	public int getId() {
 		return id;
@@ -16,27 +16,27 @@ public abstract class TaskEntity {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return task_name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.task_name = name;
 	}
-	public LocalDate getDueDate() {
-		return dueDate;
+	public String getDueDate() {
+		return due_date;
 	}
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
+	public void setDueDate(String dueDate) {
+		this.due_date = dueDate;
 	}
 	public boolean isActive() {
-		return isActive;
+		return is_active;
 	}
 	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+		this.is_active = isActive;
 	}
 	
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", name=" + name + ", dueDate=" + dueDate + ", isActive=" + isActive + "]";
+		return "Task [id=" + id + ", name=" + task_name + ", dueDate=" + due_date + ", isActive=" + is_active + "]";
 	}
 	
 }

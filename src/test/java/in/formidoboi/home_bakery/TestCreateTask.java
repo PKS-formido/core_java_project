@@ -19,11 +19,8 @@ public class TestCreateTask {
 	public void testCreateTaskWithValidData() {
 		TaskService taskService = new TaskService();
 		Task newTask = new Task();
-		
-		newTask.setId(5);
 		newTask.setName("Clean plates");
-		newTask.setDueDate(LocalDate.of(2023, 11, 24));
-		newTask.setActive(true);
+		newTask.setDueDate("2023-09-12");
 		
 		assertDoesNotThrow(() -> {
 			taskService.create(newTask);

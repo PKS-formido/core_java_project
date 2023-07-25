@@ -112,16 +112,26 @@ public class UserDAO implements UserInterface {
 
 	@Override
 	public void delete(int userId) {
-//		Set<User> userList = UserList.listOfUsers;
-//		for (User user : userList) {
-//			if (user == null) {
-//				continue;
-//			}
-//			if (user.getId() == userId) {
-//				user.setActive(false);
-//				break;
-//			}
-//		}
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			String query = "UPDATE users SET is_active = ? WHERE is_active = 1 AND id = ?";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+
+			ps.setInt(1, 0);
+			ps.setInt(2, userId);
+			ps.executeUpdate();
+
+			System.out.println("User has been successfully deactivated");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps);
+		}
 	}
 
 	@Override
