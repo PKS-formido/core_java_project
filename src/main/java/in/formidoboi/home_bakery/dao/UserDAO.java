@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -87,32 +86,42 @@ public class UserDAO implements UserInterface {
 	}
 
 	@Override
-	public void update(User updatedUser) {
-		Set<User> userList = UserList.listOfUsers;
-		for (User user : userList) {
-			if (user.getId() == updatedUser.getId()) {
-				user.setfName(updatedUser.getfName());
-				user.setsName(updatedUser.getsName());
-				user.setPassword(updatedUser.getPassword());
+	public void update(int id,User updatedUser) {
+		Connection conn = null;
+		PreparedStatement ps = null;
 
-				break;
-			}
+		try {
+			String query = "UPDATE users SET first_name = ? , last_name = ? WHERE is_active = 1 AND id = ?";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+
+			ps.setString(1, updatedUser.getfName());
+			ps.setString(2, updatedUser.getsName());
+			ps.setInt(3, id);
+			ps.executeUpdate();
+
+			System.out.println("User has been successfully updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps);
 		}
-
 	}
 
 	@Override
 	public void delete(int userId) {
-		Set<User> userList = UserList.listOfUsers;
-		for (User user : userList) {
-			if (user == null) {
-				continue;
-			}
-			if (user.getId() == userId) {
-				user.setActive(false);
-				break;
-			}
-		}
+//		Set<User> userList = UserList.listOfUsers;
+//		for (User user : userList) {
+//			if (user == null) {
+//				continue;
+//			}
+//			if (user.getId() == userId) {
+//				user.setActive(false);
+//				break;
+//			}
+//		}
 	}
 
 	@Override

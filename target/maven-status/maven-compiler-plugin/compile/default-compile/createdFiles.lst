@@ -3,6 +3,7 @@ in\formidoboi\home_bakery\Interfaces\UserInterface.class
 in\formidoboi\home_bakery\model\User.class
 in\formidoboi\home_bakery\dao\UserList.class
 in\formidoboi\home_bakery\model\UserEntity.class
+in\formidoboi\home_bakery\util\ConnectionUtil.class
 in\formidoboi\home_bakery\service\UserService.class
 in\formidoboi\home_bakery\model\TaskEntity.class
 in\formidoboi\home_bakery\service\TaskService.class

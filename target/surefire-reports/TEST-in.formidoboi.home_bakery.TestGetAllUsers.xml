@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.formidoboi.home_bakery.TestCreateUser" time="2.698" tests="8" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.formidoboi.home_bakery.TestGetAllUsers" time="0" tests="0" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,57 +58,4 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData" classname="in.formidoboi.home_bakery.TestCreateUser" time="2.692">
-    <failure message="Unexpected exception thrown: java.lang.RuntimeException" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException
-	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
-	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
-	at in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData(TestCreateUser.java:25)
-Caused by: java.lang.RuntimeException
-	at in.formidoboi.home_bakery.dao.UserDAO.create(UserDAO.java:147)
-	at in.formidoboi.home_bakery.service.UserService.create(UserService.java:30)
-	at in.formidoboi.home_bakery.TestCreateUser.lambda$testCreateUserWithValidData$0(TestCreateUser.java:26)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
-	... 16 more
-</failure>
-    <system-out><![CDATA[target: formido_project.-.primary: vttablet: rpc error: code = AlreadyExists desc = Duplicate entry 'formidoboi67@gmail.com' for key 'users.email' (errno 1062) (sqlstate 23000) (CallerID: 4sty01lgtmmdgltat5og): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-]]></system-out>
-    <system-err><![CDATA[java.sql.SQLIntegrityConstraintViolationException: target: formido_project.-.primary: vttablet: rpc error: code = AlreadyExists desc = Duplicate entry 'formidoboi67@gmail.com' for key 'users.email' (errno 1062) (sqlstate 23000) (CallerID: 4sty01lgtmmdgltat5og): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031)
-	at in.formidoboi.home_bakery.dao.UserDAO.create(UserDAO.java:141)
-	at in.formidoboi.home_bakery.service.UserService.create(UserService.java:30)
-	at in.formidoboi.home_bakery.TestCreateUser.lambda$testCreateUserWithValidData$0(TestCreateUser.java:26)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
-	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
-	at in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData(TestCreateUser.java:25)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.apache.maven.surefire.junit.PojoTestSet.executeTestMethod(PojoTestSet.java:146)
-	at org.apache.maven.surefire.junit.PojoTestSet.executeTestMethods(PojoTestSet.java:108)
-	at org.apache.maven.surefire.junit.PojoTestSet.execute(PojoTestSet.java:89)
-	at org.apache.maven.surefire.junit.JUnit3Provider.executeTestSet(JUnit3Provider.java:140)
-	at org.apache.maven.surefire.junit.JUnit3Provider.invoke(JUnit3Provider.java:113)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-]]></system-err>
-  </testcase>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithEmailNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithPasswordNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0.001"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithFirstNameEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0.001"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0.001"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithPasswordEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithFirstNameNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0.001"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithInvalidData" classname="in.formidoboi.home_bakery.TestCreateUser" time="0.001"/>
 </testsuite>

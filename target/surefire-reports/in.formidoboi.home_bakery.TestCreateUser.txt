@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: in.formidoboi.home_bakery.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in in.formidoboi.home_bakery.TestCreateUser
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.698 s <<< FAILURE! - in in.formidoboi.home_bakery.TestCreateUser
+in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData()  Time elapsed: 2.692 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData(TestCreateUser.java:25)
+Caused by: java.lang.RuntimeException
+	at in.formidoboi.home_bakery.dao.UserDAO.create(UserDAO.java:147)
+	at in.formidoboi.home_bakery.service.UserService.create(UserService.java:30)
+	at in.formidoboi.home_bakery.TestCreateUser.lambda$testCreateUserWithValidData$0(TestCreateUser.java:26)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

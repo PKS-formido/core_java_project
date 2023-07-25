@@ -6,21 +6,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ConnectionUtil {
+import io.github.cdimascio.dotenv.Dotenv;
 
+public class ConnectionUtil {
+	
 	public static Connection getConnection() {
+		
+		Dotenv env = Dotenv.load();
+		
 		Connection connection = null;
-		String url = null;
-		String userName = null;
-		String password = null;
+		String url = env.get("DATABASE_HOST");
+		String userName = env.get("DATABASE_USERNAME");
+		String password = env.get("DATABASE_PASSWORD");
 
 		try {
 //			Class.forName("com.mysql.cj.jdbc.Drivers");
 //			connection = DriverManager.getConnection(url,userName,password);
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(
-					"jdbc:mysql://aws.connect.psdb.cloud/formido_project?sslMode=VERIFY_IDENTITY",
-					"hsgbtis5tdnbwibuvy6g", "pscale_pw_NgsA1iFq5aCKqCGFboTU7XRRFviH3gFqmAHZtckE7oj");
+			connection = DriverManager.getConnection(url, userName, password);
 
 		} catch (Exception e) {
 			e.printStackTrace();

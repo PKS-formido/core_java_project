@@ -1,2 +1,4 @@
-in\formidoboi\home_bakery\TestCreateUser.class
 in\formidoboi\home_bakery\TestCreateTask.class
+in\formidoboi\home_bakery\TestCreateUser.class
+in\formidoboi\home_bakery\TestGetAllUsers.class
+in\formidoboi\home_bakery\TestUpdateUser.class

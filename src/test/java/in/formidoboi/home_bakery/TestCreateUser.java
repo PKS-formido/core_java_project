@@ -19,7 +19,7 @@ public class TestCreateUser {
 		
 		newUser.setfName("Formido");
 		newUser.setsName("Boi");
-		newUser.setEmail("formidoboi67@gmail.com");
+		newUser.setEmail("formido123@gmail.com");
 		newUser.setPassword("Aspirin2004");
 
 		assertDoesNotThrow(() -> {

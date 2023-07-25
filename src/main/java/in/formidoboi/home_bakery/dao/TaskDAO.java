@@ -30,7 +30,7 @@ public class TaskDAO implements TaskInterface{
 	}
 
 	@Override
-	public void update(Task updatedTask) {
+	public void update(int id,Task updatedTask) {
 		Set<Task> taskList = TaskList.listOfTasks;
 		for (Task task : taskList) {
 			if (task.getId() == updatedTask.getId()) {

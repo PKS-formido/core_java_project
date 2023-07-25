@@ -31,18 +31,9 @@ public class UserService {
 
 	}
 	
-	public void update() {
-		User updatedUser = new User();
-		
-		updatedUser.setId(12);
-		updatedUser.setfName("Formido");
-		updatedUser.setsName("Boi");
-		updatedUser.setEmail("formidoboi67@gmail.com");
-		updatedUser.setPassword("Aspirin2004");
-		updatedUser.setActive(true);
-		
+	public void update(int id, User updatedUser) {
 		UserDAO userDao = new UserDAO();
-		userDao.update(updatedUser);
+		userDao.update(12, updatedUser);
 		
 	}
 	

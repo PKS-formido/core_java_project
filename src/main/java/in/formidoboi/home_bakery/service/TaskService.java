@@ -46,7 +46,7 @@ public class TaskService {
 	public void update(Task updatedTask1) {
 		
 		TaskDAO taskDao = new TaskDAO();
-		taskDao.update(updatedTask1);
+		taskDao.update(1, updatedTask1);
 		
 	}
 	

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: in.formidoboi.home_bakery.TestUpdateUser
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.032 s - in in.formidoboi.home_bakery.TestUpdateUser
