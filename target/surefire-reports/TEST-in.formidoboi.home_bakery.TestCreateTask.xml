@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.formidoboi.home_bakery.TestCreateUser" time="0.001" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.formidoboi.home_bakery.TestCreateTask" time="0.044" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,12 +58,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithPasswordNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithFirstNameEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithPasswordEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithInvalidData" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithEmailNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithValidData" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
-  <testcase name="in.formidoboi.home_bakery.TestCreateUser.testCreateUserWithFirstNameNull" classname="in.formidoboi.home_bakery.TestCreateUser" time="0"/>
+  <testcase name="in.formidoboi.home_bakery.TestCreateTask.testCreateTaskWithInvalidData" classname="in.formidoboi.home_bakery.TestCreateTask" time="0.001"/>
+  <testcase name="in.formidoboi.home_bakery.TestCreateTask.testCreateTaskWithValidData" classname="in.formidoboi.home_bakery.TestCreateTask" time="0.033"/>
+  <testcase name="in.formidoboi.home_bakery.TestCreateTask.testCreateUserWithInvalidDueDate" classname="in.formidoboi.home_bakery.TestCreateTask" time="0"/>
 </testsuite>

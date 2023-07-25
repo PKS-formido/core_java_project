@@ -16,13 +16,11 @@ public class TestCreateUser {
 	public void testCreateUserWithValidData() {
 		UserService userService = new UserService();
 		User newUser = new User();
-
-		newUser.setId(1234);
+		
 		newUser.setfName("Formido");
 		newUser.setsName("Boi");
 		newUser.setEmail("formidoboi67@gmail.com");
 		newUser.setPassword("Aspirin2004");
-		newUser.setActive(true);
 
 		assertDoesNotThrow(() -> {
 			userService.create(newUser);
@@ -49,12 +47,12 @@ public class TestCreateUser {
 		
 		User newUser = new User();
 
-		newUser.setId(1234);
+//		newUser.setId(1234);
 		newUser.setfName("Formido");
 		newUser.setsName("Boi");
 		newUser.setEmail(null);
 		newUser.setPassword("Aspirin2004");
-		newUser.setActive(true);
+//		newUser.setActive(true);
 
 
 		Exception exception = assertThrows(ValidationException.class, () -> {

@@ -1,29 +1,89 @@
 package in.formidoboi.home_bakery.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.HashSet;
 import java.util.Set;
 
 import in.formidoboi.home_bakery.Interfaces.UserInterface;
 import in.formidoboi.home_bakery.model.User;
+import in.formidoboi.home_bakery.util.ConnectionUtil;
 
 public class UserDAO implements UserInterface {
 	@Override
-	public Set<User> findAll() {
-		Set<User> userList = UserList.listOfUsers;
-		return userList;
+	public Set<User> findAll() throws RuntimeException {
+//		Set<User> userList = UserList.listOfUsers;
+//		return userList;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		Set<User> setOfUser = new HashSet<>();
+		ResultSet rs = null;
+
+		try {
+			String query = "SELECT * FROM users WHERE is_active = 1";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setfName(rs.getString("first_name"));
+				user.setsName(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("is_active"));
+				user.setPassword(rs.getString("password"));
+				setOfUser.add(user);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps, rs);
+		}
+		return setOfUser;
 	}
 
 	@Override
-	public User findById(int userId) {
-		Set<User> userList = UserList.listOfUsers;
-		User userMatch = null;
+	public User findById(int userId) throws RuntimeException {
 
-		for (User user : userList) {
-			if (user.getId() == userId) {
-				userMatch = user;
-				break;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		User user = null;
+		ResultSet rs = null;
+
+		try {
+			String query = "SELECT * FROM users WHERE is_active = 1 AND id = ?";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+
+			ps.setInt(1, userId);
+
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setfName(rs.getString("first_name"));
+				user.setsName(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("is_active"));
+				user.setPassword(rs.getString("password"));
 			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps, rs);
 		}
-		return userMatch;
+		return user;
 	}
 
 	@Override
@@ -56,10 +116,29 @@ public class UserDAO implements UserInterface {
 	}
 
 	@Override
-	public void create(User newUser) {
-		// TODO Auto-generated method stub
-		Set<User> arr = UserList.listOfUsers;
-		arr.add(newUser);
+	public void create(User newUser) throws RuntimeException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+
+		try {
+			String query = "INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+
+			ps.setString(1, newUser.getfName());
+			ps.setString(2, newUser.getsName());
+			ps.setString(3, newUser.getEmail());
+			ps.setString(4, newUser.getPassword());
+			ps.executeUpdate();
+
+			System.out.println("User has been successfully created");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps);
+		}
 	}
 
 }
